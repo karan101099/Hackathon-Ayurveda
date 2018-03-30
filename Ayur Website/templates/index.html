@@ -219,17 +219,17 @@
 		1 -> length factor to cinvert into cms
 		2 -> time factor in seconds
 	*/
-	factor[0] = new Array(0.125, 1, 12, 24, 48, 96, 192, 384, 768, 3072, 12288, 24576, 49152, 196.608, 4800, 96000);
+	factor[0] = new Array(0.125, 0.125, 1, 12, 12, 24, 48, 96, 192, 384, 768, 3072, 4800, 12288, 24576, 49152, 49152, 96, 196.608);
 	factor[1] = new Array(0.24, 1.95, 22.86, 41.91, 45.72, 55.88, 182.88);
 	factor[2] = new Array(0.388333, 0.766666, 1.553333, 4.66, 1440, 140, 2880, 86400, 1296000, 2592000, 5184000, 15552000, 31104000, 155520000);
 	
 	function placeInput() {
 		if (v.value=="weight") {
 			if(a.value=="1") {
-				y.innerHTML="<option value=\"1\">Ratti/Gunja</option><option value=\"2\">Masa</option><option value=\"3\">Karsa/Tola</option><option value=\"4\">Sukti</option><option value=\"5\">Palam</option><option value=\"6\">Prasrti</option><option value=\"7\">Kudava</option><option value=\"8\">Manika</option><option value=\"9\">Prastha</option><option value=\"10\">Adhaka</option><option value=\"11\">Drona</option><option value=\"12\">Surpa</option><option value=\"13\">Droni/Vahi</option><option value=\"14\">Khari</option><option value=\"15\">Tula</option><option value=\"16\">Bhara</option>"
+				y.innerHTML="<option value=\"1\">Ratti</option><option value=\"2\">Gunja</option><option value=\"3\">Masha</option><option value=\"4\">Karsha</option><option value=\"5\">tola</option><option value=\"6\">Shukti</option><option value=\"7\">Pala</option><option value=\"8\">Prasrita</option><option value=\"9\">Kudava</option><option value=\"10\">Manika</option><option value=\"11\">Prastha</option><option value=\"12\">Adhaka</option><option value=\"13\">Tula</option><option value=\"14\">Drona</option><option value=\"15\">Shurpa</option><option value=\"16\">Droni</option><option value=\"17\">Vahi</option><option value=\"18\">bhara</option><option value=\"19\">Khari</option>"
 			}
 			if(a.value=="2") {
-				y.innerHTML="<option value=\"1\">Ratti/Gunja</option><option value=\"2\">Masa</option><option value=\"3\">Karsa/Tola</option><option value=\"4\">Sukti</option><option value=\"5\">Palam</option><option value=\"6\">Prasrti</option><option value=\"7\">Kudava</option><option value=\"8\">Manika</option><option value=\"9\">Prastha</option><option value=\"10\">Adhaka</option><option value=\"11\">Drona</option><option value=\"12\">Surpa</option><option value=\"13\">Droni/Vahi</option><option value=\"14\">Khari</option><option value=\"15\">Tula</option><option value=\"16\">Bhara</option>"
+				y.innerHTML="<option value=\"1\">Ratti</option><option value=\"2\">Gunja</option><option value=\"3\">Masha</option><option value=\"4\">Karsha/Tola</option><option value=\"5\">tola</option><option value=\"6\">Shukti</option><option value=\"7\">Pala</option><option value=\"8\">Prasrita</option><option value=\"9\">Kudava</option><option value=\"10\">Manika</option><option value=\"11\">Prastha</option><option value=\"12\">Adhaka</option><option value=\"13\">Tula</option><option value=\"14\">Drona</option><option value=\"15\">Shurpa</option><option value=\"16\">Droni</option><option value=\"17\">Vahi</option><option value=\"18\">bhara</option><option value=\"19\">Khari</option>"
 			}
 			if(a.value=="3") {
 				y.innerHTML="<option value=\"1\">Ratti/Gunja</option><option value=\"2\">Masa</option><option value=\"3\">Karsa/Tola</option><option value=\"4\">Sukti</option><option value=\"5\">Palam</option><option value=\"6\">Prasrti</option><option value=\"7\">Kudava</option><option value=\"8\">Manika</option><option value=\"9\">Prastha</option><option value=\"10\">Adhaka</option><option value=\"11\">Drona</option><option value=\"12\">Surpa</option><option value=\"13\">Droni/Vahi</option><option value=\"14\">Khari</option><option value=\"15\">Tula</option><option value=\"16\">Bhara</option>"
@@ -274,7 +274,7 @@
 
 	function placeOutput() {
 		if (v.value=="weight") {
-			z.innerHTML="<option value=\"1\">grams</option><option value=\"2\">Kilograms</option>"
+				z.innerHTML="<option value=\"1\">grams</option><option value=\"2\">Kilograms</option><option value=\"3\">Ratti</option><option value=\"4\">Gunja</option><option value=\"5\">Masha</option><option value=\"6\">Karsha</option><option value=\"7\">tola</option><option value=\"8\">Shukti</option><option value=\"9\">Pala</option><option value=\"10\">Prasrita</option><option value=\"11\">Kudava</option><option value=\"12\">Manika</option><option value=\"13\">Prastha</option><option value=\"14\">Adhaka</option><option value=\"15\">Tula</option><option value=\"16\">Drona</option><option value=\"17\">Shurpa</option><option value=\"18\">Droni</option><option value=\"19\">Vahi</option><option value=\"20\">bhara</option><option value=\"21\">Khari</option>"
 		}
 		if (v.value=="length") {
 			z.innerHTML="<option value=\"1\">Inch</option><option value=\"2\">Centimeters</option><option value=\"3\">Yavodara</option><option value=\"4\">Angula</option><option value=\"5\">Vitasti</option><option value=\"6\">Aratni</option><option value=\"7\">Hasta</option><option value=\"8\">Nrpahasta/Rajahasta</option><option value=\"9\">Vyama</option>"
@@ -287,10 +287,52 @@
 	
 	function show() {
 		if (v.value=="weight") {
+			if (a.value=='1'){
+
+			
 			if (z.value=="1")
 				x.value = w.value*factor[0][(y.value)-1];
 			if (z.value=="2")	
 				x.value = w.value*factor[0][(y.value)-1]/1000; //convert to kg
+			if (z.value=="3")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="4")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="5")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="6")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="7")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="8")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="9")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="10")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="11")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="12")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="13")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="14")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="15")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="16")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="17")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="18")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="19")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="20")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+			if (z.value=="21")
+				x.value = w.value*factor[0][(y.value)-1]/(factor[0][(z.value)-3]);
+		}
 		}
 		
 		if (v.value=="length") {
